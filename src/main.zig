@@ -1,19 +1,15 @@
 const std = @import("std");
+const lib = @import("ziglib");
 
 pub fn main() !void {
-    // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)
-    std.debug.print("All your {s} are belong to us.\n", .{"codebase"});
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    defer _ = gpa.deinit(); // Important: clean up allocator
+    const allocator = gpa.allocator();
 
-    // stdout is for the actual output of your application, for example if you
-    // are implementing gzip, then only the compressed bytes should be sent to
-    // stdout, not any debugging messages.
-    const stdout_file = std.io.getStdOut().writer();
-    var bw = std.io.bufferedWriter(stdout_file);
-    const stdout = bw.writer();
-
-    try stdout.print("Run `zig build test` to run the tests.\n", .{});
-
-    try bw.flush(); // don't forget to flush!
+    const cat: []const u8 = try lib.strcat(allocator, "Hello, ", "World !\n");
+    defer allocator.free(cat);
+    std.debug.print("Hello ++ World is -> {s}", .{cat});
+    std.debug.print("{s}", .{"Hello, " ++ "World!\n"});
 }
 
 test "simple test" {

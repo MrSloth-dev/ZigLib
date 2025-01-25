@@ -29,6 +29,12 @@ pub fn build(b: *std.Build) void {
     // running `zig build`).
     b.installArtifact(lib);
 
+    const ziglib = b.addModule("ziglib", .{
+        .root_source_file = b.path("lib/ziglib.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+
     const exe = b.addExecutable(.{
         .name = "ZigLib",
         .root_source_file = b.path("src/main.zig"),
@@ -36,6 +42,9 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    exe.root_module.addImport("ziglib", ziglib);
+    exe.addLibraryPath(b.path("zig-out/lib"));
+    exe.linkLibrary(lib);
     // This declares intent for the executable to be installed into the
     // standard location when the user invokes the "install" step (the default
     // step when running `zig build`).

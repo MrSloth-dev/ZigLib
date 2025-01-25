@@ -2,24 +2,22 @@
 Zig library inspired in libft from 42's Common Core to learn Zig lang and its build system
 
 ## Functions to include 
-- [ ] isalpha
-- [ ] isdigit
-- [ ] isalnum
-- [ ] isascii
-- [ ] isprint
-- [ ] strlen
+- [x] isalpha
+- [x] isdigit
+- [x] isalnum
+- [x] isascii
+- [x] isprint
+- [x] toupper
+- [x] tolower
+- [x] atoi
+- [x] strnstr
+- [ ] strcat
 - [ ] memset
 - [ ] bzero
 - [ ] memcpy
 - [ ] memmove
-- [ ] strlcpy
-- [ ] strlcat
-- [ ] toupper
-- [ ] tolower
 - [ ] strchr
 - [ ] strrchr
 - [ ] strncmp
 - [ ] memchr
 - [ ] memcmp
-- [ ] strnstr
-- [ ] atoi
