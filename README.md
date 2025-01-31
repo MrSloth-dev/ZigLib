@@ -11,13 +11,9 @@ Zig library inspired in libft from 42's Common Core to learn Zig lang and its bu
 - [x] tolower
 - [x] atoi
 - [x] strnstr
-- [ ] strcat
-- [ ] memset
-- [ ] bzero
-- [ ] memcpy
-- [ ] memmove
-- [ ] strchr
-- [ ] strrchr
+- [x] strcat
+- [x] strchr
+- [x] strrchr
 - [ ] strncmp
 - [ ] memchr
 - [ ] memcmp

@@ -8,3 +8,7 @@ pub const strnstr = @import("strnstr.zig").strnstr;
 pub const tolower = @import("tolower.zig").tolower;
 pub const toupper = @import("toupper.zig").toupper;
 pub const strcat = @import("strcat.zig").strcat;
+pub const strchr = @import("strchr.zig").strchr;
+pub const strrchr = @import("strrchr.zig").strrchr;
+pub const split = @import("split.zig").split;
+pub const strncmp = @import("strncmp.zig").strncmp;
