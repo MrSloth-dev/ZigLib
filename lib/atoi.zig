@@ -1,6 +1,6 @@
 const num = @import("isdigit.zig").isdigit;
 
-const Error = error{NotDigit};
+pub const Error = error{NotDigit};
 
 pub fn atoi(str: []const u8) Error!i32 {
     var number: i32 = 0;

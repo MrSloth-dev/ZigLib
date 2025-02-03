@@ -1,4 +1,4 @@
-pub const atoi = @import("atoi.zig").atoi;
+pub const atoi = @import("atoi.zig");
 pub const isalnum = @import("isalnum.zig").isalnum;
 pub const isalpha = @import("isalpha.zig").isalpha;
 pub const isascii = @import("isascii.zig").isascii;
@@ -12,3 +12,6 @@ pub const strchr = @import("strchr.zig").strchr;
 pub const strrchr = @import("strrchr.zig").strrchr;
 pub const split = @import("split.zig").split;
 pub const strncmp = @import("strncmp.zig").strncmp;
+pub const strdup = @import("strdup.zig").strdup;
+pub const substr = @import("substr.zig").substr;
+pub const getline = @import("gnl.zig").getline;

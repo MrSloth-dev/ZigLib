@@ -88,6 +88,9 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
+    exe_unit_tests.root_module.addImport("ziglib", ziglib);
+    exe_unit_tests.addLibraryPath(b.path("zig-out/lib"));
+    exe_unit_tests.linkLibrary(lib);
 
     const run_exe_unit_tests = b.addRunArtifact(exe_unit_tests);
 
