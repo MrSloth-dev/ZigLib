@@ -16,12 +16,14 @@ pub fn main() !void {
     defer arena.deinit();
     const arenaAlloc = arena.allocator();
     const args = try std.process.argsAlloc(arenaAlloc);
-    if (args.len != 2)
+    if (args.len != 2) {
+        print("Must have a file path!\n", .{});
         return;
+    }
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     defer _ = gpa.deinit(); // Important: clean up allocator
     const fd = (std.fs.cwd().openFile(args[1], .{ .mode = .read_only })) catch |err| {
-        print("File not found!\n Error =>{s}", .{err});
+        print("File not found!\n Error =>{s}\n", .{@errorName(err)});
         return;
     };
     var gpaAlloc = gpa.allocator();
