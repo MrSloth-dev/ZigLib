@@ -15,3 +15,5 @@ pub const strncmp = @import("strncmp.zig").strncmp;
 pub const strdup = @import("strdup.zig").strdup;
 pub const substr = @import("substr.zig").substr;
 pub const getline = @import("gnl.zig").getline;
+pub const strtrim = @import("strtrim.zig").strtrim;
+pub const findchar = @import("findchar.zig").findchar;

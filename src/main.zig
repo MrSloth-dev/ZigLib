@@ -94,3 +94,9 @@ test "gnl" {
         allocator.free(line);
     }
 }
+
+test "strtrim" {
+    print("{s}Strtrim Test\n{s}", .{ "\x1b[32m", "\x1b[0m" });
+    try std.testing.expect(lib.strncmp(lib.strtrim("wwwwwwwhellowwwww", "w"), "hello", 5) == 0);
+    try std.testing.expect(lib.strncmp(lib.strtrim("wawwwwwwhellowwaaaawww", "wa"), "hello", 5) == 0);
+}
